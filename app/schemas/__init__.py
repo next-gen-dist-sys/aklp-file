@@ -1,5 +1,11 @@
 """Pydantic schemas package."""
 
+from app.schemas.file import (
+    FileListResponse,
+    FileResponse,
+    FileUpdate,
+    FileUpload,
+)
 from app.schemas.responses import (
     BaseResponse,
     ErrorResponse,
@@ -8,6 +14,12 @@ from app.schemas.responses import (
 )
 
 __all__ = [
+    # File schemas
+    "FileUpload",
+    "FileUpdate",
+    "FileResponse",
+    "FileListResponse",
+    # Response schemas
     "BaseResponse",
     "SuccessResponse",
     "ErrorResponse",
