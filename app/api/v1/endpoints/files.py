@@ -2,7 +2,7 @@
 
 from uuid import UUID
 
-from fastapi import APIRouter, File, HTTPException, Query, UploadFile, status
+from fastapi import APIRouter, File, Form, HTTPException, Query, UploadFile, status
 from fastapi.responses import Response
 
 from app.core.config import settings
@@ -24,8 +24,8 @@ FILES_PER_PAGE = 10
 async def upload_file(
     db: DBSession,
     file: UploadFile = File(..., description="File to upload"),
-    description: str | None = Query(None, description="File description"),
-    session_id: UUID | None = Query(None, description="AI session ID"),
+    description: str | None = Form(None, description="File description"),
+    session_id: UUID | None = Form(None, description="AI session ID"),
 ) -> FileResponse:
     """Upload a new file.
 
